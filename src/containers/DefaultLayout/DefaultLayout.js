@@ -26,6 +26,8 @@ class DefaultLayout extends Component {
   render() {
     return (
       <div className="app">
+        {console.log(routes)
+        }
         <AppHeader fixed>
           <DefaultHeader />
         </AppHeader>
@@ -38,17 +40,17 @@ class DefaultLayout extends Component {
             <AppSidebarMinimizer />
           </AppSidebar>
           <main className="main">
-            <AppBreadcrumb appRoutes={routes}/>
+            <AppBreadcrumb appRoutes={routes} />
             <Container fluid>
               <Switch>
                 {routes.map((route, idx) => {
-                    return route.component ? (<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
-                        <route.component {...props} />
-                      )} />)
-                      : (null);
-                  },
+                  return route.component ? (<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
+                    <route.component {...props} />
+                  )} />)
+                    : (null);
+                },
                 )}
-                <Redirect from="/" to="/dashboard" />
+                <Redirect from="/" to="/admin/dashboard" />
               </Switch>
             </Container>
           </main>
