@@ -181,12 +181,17 @@ const User = Loadable({
   loader: () => import('./views/Users/User'),
   loading: Loading,
 });
+const AddStudent = Loadable({
+  loader: () => import('./components/AddStudent'),
+  loading: Loading,
+});
 
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/admin', exact: true, name: 'Home', component: DefaultLayout },
+  { path: '/admin/addStudent', exact: true, name: 'Thêm học viên', component: AddStudent },
   { path: '/admin/dashboard', exact:true, name: 'Dashboard', component: Dashboard },
   { path: '/admin/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/admin/theme/colors', name: 'Colors', component: Colors },
